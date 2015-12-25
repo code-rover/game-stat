@@ -302,8 +302,8 @@ var task_map = {
 
 };
 
-var dataurl = "http://192.168.1.222:8080/lua"
-//var dataurl = "http://120.26.14.229:8080/lua"
+//var dataurl = "http://192.168.1.222:8080/lua"
+var dataurl = "http://120.26.14.229:8080/lua"
 
 $(document).ready(function(){
 	/* ---------- Add class .active to current link  ---------- */

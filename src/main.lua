@@ -3,8 +3,8 @@ package.path = package.path .. ";./src/?.lua"
 local comm = require "comm"
 local ldb = require "db"
 
-local db ,err = ldb:connect("192.168.1.2", 3306, "data_log", "qirui", "Haisky1987")
---local db ,err = ldb:connect("10.141.64.3", 3306, "data_log", "dalianxiaohuoban", "Haisky1987")
+--local db ,err = ldb:connect("192.168.1.2", 3306, "data_log", "qirui", "Haisky1987")
+local db ,err = ldb:connect("10.141.64.3", 3306, "data_log", "dalianxiaohuoban", "Haisky1987")
 
 if not db then
 	ngx.say("db connect error  " .. tostring(err))
