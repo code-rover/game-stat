@@ -45,15 +45,19 @@ if req == 1 then   --请求在线人数
 elseif req == 2 then  --玩家等级
 	--sql = "select val as level,  userid from (select * from BI_levelup where levelup = 'master_up' order by val desc)  as b group by userid"
 	--sql = "select pre_val as level,count(id) as count from BI_levelup where levelup = 'master_up'  group by pre_val where 1=1 "
-	sql = "select pre_val as level,count(id) as count from BI_levelup where levelup = 'master_up' "
+	--sql = "select val as level,count(id) as count from BI_levelup where levelup = 'master_up' "
+
+	local cond = ""
 	if serverid and serverid ~= 0 then
-		sql = sql .. " and clientid="..serverid
+		cond = " and clientid="..serverid
 	end		
 	if snid and snid ~= 0 then
-		sql = sql .. " and snid="..snid
+		cond = cond .. " and snid="..snid
 	end
 
-	sql = sql .. " group by pre_val"
+	sql = "select count(*) as count, a.b as level from (select max(cast(val as unsigned)) as b from bi_levelup where levelup='master_up' " .. cond .. "  group by userid) as a group by a.b"
+
+	--sql = sql .. " group by val"
 
 elseif req == 3 then --钻石任务
 	--sql = "select phylum, abs(sum(amount)) as amount from BI_economy where currency = 'zuanshi' and amount < 0 and phylum <> 0 group by phylum"

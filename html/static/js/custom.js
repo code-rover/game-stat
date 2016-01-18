@@ -382,8 +382,8 @@ function numberWithCommas(x) {
 /* ---------- Charts ---------- */
 
 function charts() {
-	var chart1_serverid = "0";
-	var chart1_snid = "0";
+	var chart1_serverid = "88800888";
+	var chart1_snid = "888";
 
 	var chart2_serverid = "0";
 	var chart2_snid = "0";
